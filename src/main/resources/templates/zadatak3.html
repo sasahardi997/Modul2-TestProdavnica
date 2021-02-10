@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Komponente</title>
+</head>
+<body>
+	<table>
+		<caption>Komponente</caption>
+		<tr>
+			<th>Redni broj</th>
+			<th>Proizvođač</th>
+			<th>Model</th>
+			<th>Cena</th>
+			<th>Dostupnost</th>
+		</tr>
+		<tr th:each="itDostupne, status: ${dostupne}">
+			<td th:text="${status.count}"></td>
+			<td th:text="${itDostupne.proizvodjac.naziv}"></td>
+			<td th:text="${itDostupne.model}"></td>
+			<td th:text="${itDostupne.cena}"></td>
+			<td>DA</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<hr>
+			</td>
+		</tr>
+		<tr th:each="itNedostupne, status: ${nedostupne}">
+			<td th:text="${status.count}"></td>
+			<td th:text="${itNedostupne.proizvodjac.naziv}"></td>
+			<td th:text="${itNedostupne.model}"></td>
+			<td th:text="${itNedostupne.cena}"></td>
+			<td>NE</td>
+		</tr>
+	</table>
+	<h3>Proizvodjac sa najvise komponenti je: <span th:text="${imeProizvodjaca}"></span></h3>
+	<h3>Broj komponenti: <span th:text="${brojKomponenti}"></span></h3>
+	<h3>Ukupna cena komponenti: <span th:text="${ukupnaCena}"></span></h3>
+</body>
+</html>

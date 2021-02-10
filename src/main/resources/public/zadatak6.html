@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Komponente</title>
+	<script src="webjars/jquery/3.2.1/jquery.js" type="text/javascript"></script>
+	<script src="js/zadatak6.js" type="text/javascript"></script>
+</head>
+<body>
+	<form action="zadatak6.html">
+	
+	<input type="checkbox" name="prikazi"> <span>Prikazi</span>
+	
+		<table class="tabela" style="display:none">
+			<tr>
+				<td>Proizvođač</td>
+				<td>
+					<select id="proizvodjac">
+						<option>AMD</option>
+						<option>Samsung</option>
+						<option>Gigabyte</option>
+					</select>
+				</td>
+			</tr>
+			<tr><td>Model</td><td><input type="text" name="model"/></td></tr>
+			<tr><td>Cena</td><td><input type="number" min=0 step=0.1 name="cena"/></td></tr>
+			<tr>
+				<td>Dostupnost</td>
+				<td>
+					<input type="radio" value="true" name="dostupnost"/> DA
+					<input type="radio" value="false" name="dostupnost"/> NE
+				</td>
+			</tr>
+			<tr><td></td><td><input type="submit" value="Dodaj"/></td></tr>
+		</table>
+	</form>
+</body>
+</html>

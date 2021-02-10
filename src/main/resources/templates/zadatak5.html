@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Komponente</title>
+</head>
+<body>
+	<form method="get">
+		<table>
+			<caption>Komponente</caption>
+			<tr>
+				<th>Redni broj</th>
+				<th>Proizvođač</th>
+				<th>Model</th>
+				<th>Cena</th>
+				<th>Dostupnost</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>
+				<select name="proizvodjac">
+						<option value="0">odaberi</option>
+						<option th:each="it: ${proizvodjaci}" th:value="${it.naziv}" th:text="${it.naziv}" th:selected="${#strings.equals(it.naziv, param.proizvodjac)}"></option>
+				</select>
+				<th>
+				<th></th>
+				<th>
+					Od: <input type="number" th:value="${param.cenaOd}?:'0'" name="cenaOd" min="0"><br/>
+					Do: <input type="number" th:value="${param.cenaDo}?:'1000000'" name="cenaDo" min="0"><br/>
+				</th>
+				<th>
+					<input type="checkbox" name="dostupnost" th:value="${param.dostupnost}?:'true'">Dostupne <br/>
+					<input type="checkbox" name="dostupnost" th:value="${param.dostupnost}?:'false'">Nedostupne
+				</th>
+				<th>
+					<input type="submit" value="Pretrazi">
+				</th>
+			</tr>
+			<tr th:each="itDostupne, status: ${dostupne}">
+				<td th:text="${status.count}"></td>
+				<td th:text="${itDostupne.proizvodjac.naziv}"></td>
+				<td th:text="${itDostupne.model}"></td>
+				<td th:text="${itDostupne.cena}"></td>
+				<td>DA</td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<hr>
+				</td>
+			</tr>
+			<tr th:each="itNedostupne, status: ${nedostupne}">
+				<td th:text="${status.count}"></td>
+				<td th:text="${itNedostupne.proizvodjac.naziv}"></td>
+				<td th:text="${itNedostupne.model}"></td>
+				<td th:text="${itNedostupne.cena}"></td>
+				<td>NE</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

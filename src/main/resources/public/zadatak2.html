@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Komponente</title>
+</head>
+<body>
+	<form method="post" action="Komponente/Create">
+		<table>
+			<tr>
+				<td>Proizvođač</td>
+				<td>
+					<select name="proizvodjacId">
+						<option value="1">AMD</option>
+						<option value="2">Samsung</option>
+						<option value="3">Gigabyte</option>
+					</select>
+				</td>
+			</tr>
+			<tr><td>Model</td><td><input type="text" name="model"/></td></tr>
+			<tr><td>Cena</td><td><input type="number" min=0 step=0.1 name="cena"/></td></tr>
+			<tr>
+				<td>Dostupnost</td>
+				<td>
+					<input type="radio" value="true" name="dostupnost"/> DA
+					<input type="radio" value="false" name="dostupnost"/> NE
+				</td>
+			</tr>
+			<tr><td></td><td><input type="submit" value="Dodaj"/></td></tr>
+		</table>
+	</form>
+</body>
+</html>
